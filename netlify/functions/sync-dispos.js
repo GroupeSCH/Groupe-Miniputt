@@ -5,7 +5,7 @@ export default async function handler(req, context) {
     const store = getStore('global');
 
     // Appel du script externe
-    const res = await fetch('https://script.google.com/macros/s/AKfycbxhQEwmB3vY8P5d04Ef0GBrjU_W9Uhv3IhQ-4nMy1u6Iz9aNn0o26LgvrauqVJl78Wv/exec?path=dispos');
+    const res = await fetch('https://script.google.com/macros/s/AKfycbzlnJvSYcleBQ_l2z5vUSmksQTtVE0kxYLUwMQ_N1avWEezKWwBeGsiOc579qOlMj5cGg/exec?path=dispos');
     if (!res.ok) {
       throw new Error(`Erreur API externe (${res.status})`);
     }
