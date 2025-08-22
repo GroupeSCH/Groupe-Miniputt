@@ -320,7 +320,7 @@
       }
 
       function invoice() {
-        const url = 'https://script.google.com/macros/s/AKfycbxcwI0QRWiw36FeLWMC8li3_9bCBk7ygF8MUmTV3cVjVAfVrUgIunbATDPpAHEoC9Ul/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbx7FSTFOmL6f5sQpT0Zccr_4XLWIJ4yUIpAyHl9jpRtIBeLNH6_o2aEpgzTffM8KKT3/exec';
         const body = new URLSearchParams(selected);
         return fetch(url, {
           method: 'POST',
@@ -330,12 +330,22 @@
       }
 
       function sendEmail() {
-        const url = 'https://script.google.com/macros/s/AKfycbwQn8mGDXSWUoFti2-GP-bA83UTiz-V9IY5IOApXDOkihQcEjDi-q3u1PJ91iNuEtdm9Q/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbzX_Blgr8q6L7K7H1mSRjacztQfRBnecUIs2-TUcMdk4SPQE42fer29Jh4H-Bgn1fcxDw/exec';
         const body = new URLSearchParams(selected);
         return fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: body.toString()
+        });
+      }
+
+      function updateDispo() {
+        const url = 'https://script.google.com/macros/s/AKfycbzlnJvSYcleBQ_l2z5vUSmksQTtVE0kxYLUwMQ_N1avWEezKWwBeGsiOc579qOlMj5cGg/exec';
+        const body = new URLSearchParams(selected);
+        return fetch(url, {
+          method : 'POST',
+          headers : { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body : body.toString()
         });
       }
 
@@ -474,6 +484,7 @@
 
           selected.action = 'confirmationEN';
           const p1 = (option === 'online') ? invoice().then(() => sendEmail()) : sendEmail();
+          p1.then(() => updateDispo());
 
           Promise.resolve(p1)
             .then(() => {

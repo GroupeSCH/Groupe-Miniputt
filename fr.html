@@ -322,7 +322,7 @@
       }
 
       function invoice() {
-        const url = 'https://script.google.com/macros/s/AKfycbxcwI0QRWiw36FeLWMC8li3_9bCBk7ygF8MUmTV3cVjVAfVrUgIunbATDPpAHEoC9Ul/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbx7FSTFOmL6f5sQpT0Zccr_4XLWIJ4yUIpAyHl9jpRtIBeLNH6_o2aEpgzTffM8KKT3/exec';
         const body = new URLSearchParams(selected);
         return fetch(url, {
           method: 'POST',
@@ -429,6 +429,7 @@
           selected.name = selected.prenom + ' ' + selected.nom;
           selected.email = document.getElementById('email').value.trim();
           selected.phone_number = document.getElementById('phone').value.trim();
+          selected.parcours = document.querySelector('input[name="parcours"]:checked').value.trim();
         } catch (e) {
           throw new Error('Erreur collecte client : ' + e.message);
         }
