@@ -1,0 +1,29 @@
+[build]
+
+    publish = "."
+
+
+    [build.environment]
+
+    NODE_VERSION = "18"
+
+
+[functions]
+
+    node_bundler = "esbuild"
+
+
+[functions."sync-dispos"]
+
+    schedule = "*/5 * * * *"
+
+[[redirects]]
+    from = "/api/*"
+    to   = "/.netlify/functions/:splat"
+    status = 200
+
+[context.production]
+
+[context.deploy-preview]
+
+[context.branch-deploy]
