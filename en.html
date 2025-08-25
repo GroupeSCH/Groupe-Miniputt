@@ -226,7 +226,15 @@
         <div class="form-info">
           <div>
             <label>Phone number</label>
-            <input type="phone" id="phone" required/>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              pattern="^\+?[1-9]\d{6,14}$"
+              required
+            />
           </div>
           <div>
             <label>Email</label>
